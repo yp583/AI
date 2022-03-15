@@ -36,37 +36,3 @@ class LassoRegressionAI:
 
     def getPredictedOutcome(x):
         return x @ self.weights
-"""   
-def initFakeData(N, d, nnz):
-    np.random.seed(10)
-
-    prm = np.random.permutation(d+1)
-    betaTrue = np.zeros(d+1)
-    betaTrue[prm[0:nnz]] = np.random.randn(nnz)
-
-    X = np.random.randn(N, d)
-    print(X.shape)
-    X = np.insert(X, 0, 1, axis = 1)
-    print(X.shape)
-
-    noise = .001*np.random.randn(N)
-
-    y = X @ betaTrue + noise
-    
-    return X, y, betaTrue
-
-X, y, weightsTrue = initFakeData(10, 100, 50)
-
-myLasso = LassoRegressionAI(X, y, .005, 10)
-myLasso.solveLasso_proxGrad()
-weights = myLasso.weights
-X = myLasso.X
-y= myLasso.y
-
-plt.figure()
-s = np.arange(10)
-plt.plot(s, X @ weights)
-plt.plot(s, y)
-
-plt.show()
-"""
